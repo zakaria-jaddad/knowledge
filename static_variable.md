@@ -1,5 +1,18 @@
 # Static variable
 
+<!--toc:start-->
+
+- [Static variable](#static-variable)
+  - [What is Static variable](#what-is-static-variable)
+  - [Addressing](#addressing)
+    - [What is the absolute address addressing mode](#what-is-the-absolute-address-addressing-mode)
+    - [What is a data segment of the program](#what-is-a-data-segment-of-the-program)
+  - [Scope](#scope)
+    - [What is `internal linkage` in `C`](#what-is-internal-linkage-in-c)
+    - [What is `external linkage` in `C`](#what-is-external-linkage-in-c)
+  - [Example](#example)
+  <!--toc:end-->
+
 ## What is Static variable
 
 a static variable is a variable that has been allocated `statically`,
@@ -15,18 +28,18 @@ before the associated program is executed.
 Unlike `dynamic memory allocation` or `automatic memory allocation` where memory is allocated as
 required at `run time`.
 
-As far as i know a `static variable` is allocated at the compile time even if you use recursive call's still new value.
+As far as i know a `static variable` is allocated at the compile time.
 might be wrong
 
 ## Addressing
 
 The absolute address addressing mode only can be used with static variables,
-thought those are the only kinds of variables whose location is know by the `compiler` at compile time.
+thought those are the only kinds of variables whose location is known by the `compiler` at compile time.
 
 When the program or a library is loaded into memory `static variables` are stored in
 `data segment` of the program address space (if initialized) or the `BBS segment` (if uninitialized).
 
-And are stored in corresponding sections of `object files` priop to loading.
+And are stored in corresponding sections of `object files` prior to loading.
 
 ### What is the absolute address addressing mode
 
@@ -58,7 +71,7 @@ it is often referred to as the _bss serction_ or _bss segment_.
 
 A static local variable is different form local variable as `static local variable` is initialized only once
 no matter how many times the function in which it resides is called and it's value is retained and accessible
-through many calls to the function in which it is declared. _what i did when i used it in recursive calls_
+through many calls to the function in which it is declared. _what happened when i used it in recursive calls_
 
 ### What is `internal linkage` in `C`
 
