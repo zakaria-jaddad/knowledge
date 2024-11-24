@@ -1,5 +1,20 @@
 # Variable Argument Lists
 
+<!--toc:start-->
+
+- [Variable Argument Lists](#variable-argument-lists)
+  - [The va_list Type](#the-valist-type)
+  - [The va_start](#the-vastart)
+  - [WTF is a register](#wtf-is-a-register)
+    - [Types of Registers](#types-of-registers)
+    - [Size of registers](#size-of-registers)
+    - [General-purpose register](#general-purpose-register)
+    - [register save area](#register-save-area)
+    - [floating point register](#floating-point-register)
+  - [The va_arg](#the-vaarg)
+  - [The va_end macro](#the-vaend-macro)
+  <!--toc:end-->
+
 ## The va_list Type
 
 The `va_list` type is an array containing a single element of one structure
@@ -79,3 +94,26 @@ register save area provides the space that is needed to save used registers stat
 ### floating point register
 
 Floating point register is a special type of register used for storing floating-point numbers in a binary format.
+
+## The va_arg
+
+The `va_arg` macro expands to and expression that has the specified type
+and the value of the next argument in the call.
+the parameter ap must have been initialized by `va_start`
+
+each call the `va_arg`modifies `ap` so that the value of successive argument
+are returned in turn.
+
+`va_arg` returns a value of the requested argument based
+on the given type, set's `ap` to point to the next argument
+using the given type size
+
+## The va_end macro
+
+The `va_end` macro facilitates a normal return from the function
+
+The `va_end` does nothing in some systems but in others
+it modifies `ap` so that is's no longer usable.
+
+If `va_end` is not invoked before the return, the befabior is
+undefined, the `va_end` return no value
